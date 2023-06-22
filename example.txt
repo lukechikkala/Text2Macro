@@ -1,0 +1,9 @@
+Fixture 1 Thru 10 At 100
+Store Sequence 1
+ClearAll
+Select Sequence 1
+Label Sequence 1 "Hello World"
+Label Cue 1 'Hello Continent'
+Assign Sequence 1 At Page 1.201
+FaderMaster 201 At 0
+FaderMaster 201 At 100 Fade 5
