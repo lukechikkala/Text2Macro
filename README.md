@@ -28,3 +28,4 @@ Converts text written in VS Code to a simple gMA3 Macro
     <img src="/rsc/VS%20Code%20Man%20Page.mp4" width=50% height=50% style="border-radius: 7px">
 </p>
 
+https://github.com/lukechikkala/Text2Macro/assets/23566967/fe3f8642-7154-40b6-b48f-4790332d5436
