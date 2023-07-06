@@ -33,25 +33,44 @@ module.exports                  = function( str ) {
 
 //--[ regexers ]--------------------------------------------------------------------------------------------------------------------------------------
 
-    for ( var i = 0 ; i < double_quotes_count ; i++ )
+    if ( count_new_lines == 0 )
     {
-        NewText = NewText.replace( "\"", "\&quot;" );
-    }
-
-    for ( var i = 0 ; i < single_quotes_count ; i++ )
-    {
-        NewText = NewText.replace( "\'", "\&apos;" );
-    }
-
-    NewText = NewText.replace( line_beginnings, "\n" );
-
-    for ( var i = 0 ; i < count_new_lines ; i++ )
-    {
+        for ( var i = 0 ; i < double_quotes_count ; i++ )
+        {
+            NewText = NewText.replace( "\"", "\&quot;" );
+        }
+    
+        for ( var i = 0 ; i < single_quotes_count ; i++ )
+        {
+            NewText = NewText.replace( "\'", "\&apos;" );
+        }
+        NewText = NewText.replace( line_beginnings, "\n" );
         NewText = NewText.replace( new_lines, "\t\t<MacroLine Command=\"" )
+        NewText = NewText.replace( carriage_returns, "\" />\n" );
+        NewText = NewText.replace( line_endings, "\" />" );
     }
-
-    NewText = NewText.replace( carriage_returns, "\" />\n" );
-    NewText = NewText.replace( line_endings, "\" />" );
+    else
+    {
+        for ( var i = 0 ; i < double_quotes_count ; i++ )
+        {
+            NewText = NewText.replace( "\"", "\&quot;" );
+        }
+    
+        for ( var i = 0 ; i < single_quotes_count ; i++ )
+        {
+            NewText = NewText.replace( "\'", "\&apos;" );
+        }
+    
+        NewText = NewText.replace( line_beginnings, "\n" );
+    
+        for ( var i = 0 ; i < count_new_lines ; i++ )
+        {
+            NewText = NewText.replace( new_lines, "\t\t<MacroLine Command=\"" )
+        }
+    
+        NewText = NewText.replace( carriage_returns, "\" />\n" );
+        NewText = NewText.replace( line_endings, "\" />" );
+    }
 
 //--[ Headers & Footers ]-----------------------------------------------------------------------------------------------------------------------------
 
